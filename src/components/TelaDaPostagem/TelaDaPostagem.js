@@ -1,12 +1,12 @@
 import React from "react";
 import { ContainerPostagem, Title, Image, Description } from "./TelaDaPostagem.styled";
 
-const TelaDaPostagem = () => {
+const TelaDaPostagem = ({imagem, descricao, titulo}) => {
   return (
     <ContainerPostagem>
-      <Title>Titulo</Title>
-      <Image src={"https://picsum.photos/536/354"} />
-      <Description>Descrição</Description>
+      <Title>{titulo}</Title>
+      <Image src={imagem?imagem:"https://picsum.photos/536/354"} />
+      <Description>{descricao?descricao:"Descrição"}</Description>
     </ContainerPostagem>
   );
 };

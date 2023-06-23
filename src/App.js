@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import FormularioPostagem from "./components/FormularioPostagem/FormularioPostagem";
 import TelaDaPostagem from "./components/TelaDaPostagem/TelaDaPostagem";
@@ -12,21 +13,37 @@ const GlobalStyle = createGlobalStyle`
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
   height: 100vh;
   width: 100vw;
 `;
 
 function App() {
+  const [photo, setPhoto] = useState("");
+  const [description, setDescription] = useState("");
+  const [titulo, setTitulo] = useState("")
+
   return (
     <>
       <GlobalStyle />
 
       <Container>
+        <FormularioPostagem
+          imagem={photo}
+          descricao={description}
+          titulo={titulo}
+        
+          setPhoto={setPhoto}
+          setDescription={setDescription}
+          setTitulo={setTitulo}
 
-        <FormularioPostagem />
+        />
 
-        <TelaDaPostagem />
-
+        <TelaDaPostagem 
+         imagem={photo}
+         descricao={description}
+         titulo={titulo}
+         />
       </Container>
     </>
   );
